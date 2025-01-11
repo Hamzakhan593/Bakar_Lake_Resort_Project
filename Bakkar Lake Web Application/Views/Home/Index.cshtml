@@ -1,8 +1,139 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Welcome to Bakkar Lake Resort Sanghar";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container-fluid p-0 bg-dark text-white">
+    <!-- Hero Section -->
+    <div class="text-center py-5"
+         style="background: url('@Url.Content("~/pictures/lake picture 1.jpg")') no-repeat center center / cover; height: 500px; margin-bottom: 5rem;">
+        <div class="overlay"
+             style="background-color: rgba(0, 0, 0, 0.5); height: 100%; width: 100%; padding-top: 150px;">
+            <h1 class="display-3 fw-bold mb-3">@ViewData["Title"]</h1>
+            <p class="lead">ENJOY PEACEFUL NATURE WITH MODERN COMFORT.</p>
+        </div>
+    </div>
+
+    <!-- Image Carousel -->
+    <div id="resortCarousel" class="carousel slide my-5" data-bs-ride="carousel" data-bs-interval="2000" style="max-width: 800px; margin: 0 auto;">
+        <div class="carousel-inner">
+            <!-- Carousel Items -->
+            <div class="carousel-item active">
+                <img src="@Url.Content("~/bakarimages/img1.jpg")" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Slide 1">
+            </div>
+            <div class="carousel-item">
+                <img src="@Url.Content("~/bakarimages/img13.jpg")" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Slide 2">
+            </div>
+            <div class="carousel-item">
+                <img src="@Url.Content("~/bakarimages/img2.jpg")" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Slide 3">
+            </div>
+            <div class="carousel-item">
+                <img src="@Url.Content("~/bakarimages/img3.jpg")" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Slide 4">
+            </div>
+            <div class="carousel-item">
+                <img src="@Url.Content("~/bakarimages/img4.jpg")" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Slide 5">
+            </div>
+            <div class="carousel-item">
+                <img src="@Url.Content("~/bakarimages/img5.jpg")" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Slide 6">
+            </div>
+            <div class="carousel-item">
+                <img src="@Url.Content("~/bakarimages/img6.jpg")" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Slide 7">
+            </div>
+            <div class="carousel-item">
+                <img src="@Url.Content("~/bakarimages/img7.jpg")" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Slide 8">
+            </div>
+            <div class="carousel-item">
+                <img src="@Url.Content("~/bakarimages/img8.jpg")" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Slide 9">
+            </div>
+            <div class="carousel-item">
+                <img src="@Url.Content("~/bakarimages/img9.jpg")" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Slide 10">
+            </div>
+            <div class="carousel-item">
+                <img src="@Url.Content("~/bakarimages/img10.jpg")" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Slide 11">
+            </div>
+            <div class="carousel-item">
+                <img src="@Url.Content("~/bakarimages/img11.jpg")" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Slide 12">
+            </div>
+            <div class="carousel-item">
+                <img src="@Url.Content("~/bakarimages/img12.jpg")" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Slide 13">
+            </div>
+            <!-- Add remaining carousel items here -->
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#resortCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#resortCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- Rooms Section -->
+    <div class="container my-5 py-5">
+        <h2 class="text-center mb-5">Book Rooms</h2>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card bg-dark text-white shadow">
+                    <img src="~/bakarimages/room1.jpg" class="card-img-top" alt="Meeting Area">
+                    <div class="card-body">
+                        <h5 class="card-title">Luxury Room</h5>
+                        <p class="card-text">Relax in a spacious suite with all modern amenities.</p>
+                        <a asp-controller="booking" asp-action="Create" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card bg-dark text-white shadow">
+                    <img src="~/bakarimages/room2.jpg" class="card-img-top" alt="Family Rooms">
+                    <div class="card-body">
+                        <h5 class="card-title">Family Rooms</h5>
+                        <p class="card-text">Perfect for families seeking fun and adventure.</p>
+                        <a asp-controller="Booking" asp-action="Create" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <div class="container my-5 py-5">
+        <div class="row align-items-center">
+            <div class="col-md-6 mb-4">
+                <img src="~/Pictures/FlagView.jpg" class="img-fluid rounded shadow" alt="About Lake Resort">
+            </div>
+            <div class="col-md-6">
+                <h2 class="mb-4">Discover Bakar Lake Resort</h2>
+                <p class="text-white">
+                    Escape to Bakar Lake Resort, a serene haven on the peaceful shores of Bakar Lake in Sindh.
+                    Operated by the Sindh Tourism Development Corporation (STDC), our resort offers breathtaking
+                    natural views, rich cultural experiences, and unforgettable memories.
+                </p>
+                <a asp-controller="Home" asp-action="About" class="btn btn-outline-light mt-3">Learn More</a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Video Section -->
+    <div class="container text-center my-5 py-5">
+        <h3>EXPLORE THE BEAUTY OF BAKAR LAKE RESORT SANGHAR</h3>
+        <video controls class="w-100 mt-4 shadow" style="max-width: 720px;"
+                poster="~/bakarimages/video-poster-image.jpg">
+            <source src="~/Vedio/bakkarLake.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="bg-info py-5 mt-5">
+        <div class="container text-center">
+            <h5>Made with <i class="bi bi-heart-fill text-danger"></i> by Hamza & Jahangir</h5>
+            <p class="text-muted mb-4">Have questions or need help? We're here for you!</p>
+            <a class="btn btn-dark btn-lg" asp-controller="Contact" asp-action="SendMessage"> <h2>Contact Us</h2> </a>
+        </div>
+    </footer>
 </div>

@@ -1,0 +1,44 @@
+﻿     @model Bakkar_Lake_Web_Application.Models.BookingViewModel;
+
+@{
+    ViewData["Title"] = "Booking Confirmation";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center">Booking Confirmation</h2>
+
+    <div class="card mt-4">
+        <div class="card-body">
+            <h4 class="card-title">Booking Details</h4>
+
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <p><strong>Check-In Date:</strong> @Model.CheckInDate.ToString("yyyy-MM-dd")</p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>Check-Out Date:</strong> @Model.CheckOutDate.ToString("yyyy-MM-dd")</p>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <p><strong>Total Days:</strong> @Model.TotalDays</p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>Total Amount:</strong> $@Model.Total</p>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <p><strong>Discount:</strong> $@Model.Discount</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-4 text-center">
+        <a href="/Booking" class="btn btn-primary">Edit Booking</a>
+        <a href="/Home" class="btn btn-success">Confirm Booking</a>
+    </div>
+</div>

@@ -17,7 +17,7 @@ namespace Bakkar_Lake_Web_Application.Models
        public decimal PricePerDay { get; set; }
 
         // Total Price of the package
-         public decimal TotalPrice { get; set; }
+         public decimal PackageTotalPrice { get; set; }
 
         public bool Status { get; set; }
     }

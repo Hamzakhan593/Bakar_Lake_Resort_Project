@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -7,7 +8,6 @@ namespace Bakkar_Lake_Web_Application.Models
 {
     public class BookingViewModel
     {
-        // Customer Information
         [Required]
         public string CustomerName { get; set; }
 
@@ -26,11 +26,8 @@ namespace Bakkar_Lake_Web_Application.Models
 
         public string Address { get; set; }
 
-        // Booking Information
+        [Required(ErrorMessage = "Please select a package.")]
         public int PackageId { get; set; }
-
-   
-        public int RoomId { get; set; }
 
         [Required]
         public DateTime CheckInDate { get; set; }
@@ -44,34 +41,56 @@ namespace Bakkar_Lake_Web_Application.Models
 
         public decimal Total { get; set; }
 
-        public bool Status { get; set; } // Active (true) or Inactive (false)
+        public bool Status { get; set; } 
+        
+        [ValidateNever]
+        public List<Package> Packages { get; set; }
 
-        // To populate dropdown lists in the view
-        public List<Package> Packages { get; set; } 
-        public List<Rooms> Rooms { get; set; }
 
-     
-            public void CalculateTotalDays()
+        public void CalculateTotalDays()
+        {
+            if (CheckInDate < CheckOutDate)
             {
-                if (CheckInDate != null && CheckOutDate != null)
-                {
-                    TotalDays = (CheckOutDate - CheckInDate).Days;
-                }
+                TotalDays = (CheckOutDate - CheckInDate).Days;
             }
+            else
+            {
+                TotalDays = 0; 
+            }
+        }
 
-            // Method to calculate total amount based on days and selected package
-            public void CalculateTotalAmount()
+        public void CalculateTotalAmount()
+        {
+            CalculateDiscount();
+
+            if (Packages != null && Packages.Any())
             {
-            if (Packages !=null )
-            {
-                var package = Packages.FirstOrDefault(p => p.P_Id == PackageId);
+                var package = Packages
+                    .FirstOrDefault(p => p.P_Id == PackageId);
+
                 if (package != null && TotalDays > 0)
                 {
-                    Total = package.PricePerDay * TotalDays;
+                    Total = (package.PackageTotalPrice * TotalDays) - (decimal)Discount;
                 }
             }
-                
+        }
+
+        public void CalculateDiscount()
+        {
+            if (PackageId == 1)
+            {
+                Discount = 0;
             }
+            else if (PackageId == 2) 
+            {
+                Discount = 2000;
+            }
+            else if (PackageId == 3)
+            {
+                Discount = 10000;
+            }
+        }
+
     }
 }
 

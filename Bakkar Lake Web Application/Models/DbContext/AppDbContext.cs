@@ -1,19 +1,40 @@
 ﻿using Bakkar_Lake_Web_Application.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+
 namespace Bakkar_Lake_Web_Application.Data
 {
 
-    public class AppDbContext : DbContext   
+    public class AppDbContext : IdentityDbContext<IdentityUser>
     {
         public AppDbContext(DbContextOptions options) : base(options)
         {
             
         }
-            // DbSet properties for each model
             public DbSet<Customer> Customers { get; set; }
             public DbSet<Package> Packages { get; set; }
             public DbSet<Booking> Bookings { get; set; }
-            public DbSet<Rooms> Rooms { get; set; }
+            public DbSet<Room> Rooms { get; set; }
             public DbSet<BookingRoom> BookingRooms { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<BookingRoom>()
+                .HasKey(br => new { br.B_Id, br.RoomId }); // Composite primary key
+
+            modelBuilder.Entity<BookingRoom>()
+                .HasOne(br => br.Booking)
+                .WithMany(b => b.BookingRooms)
+                .HasForeignKey(br => br.B_Id);
+
+            modelBuilder.Entity<BookingRoom>()
+                .HasOne(br => br.Room)
+                .WithMany(r => r.BookingRooms)
+                .HasForeignKey(br => br.RoomId);
+        }
+
+
     }
 }

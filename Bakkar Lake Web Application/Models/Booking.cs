@@ -38,10 +38,13 @@ namespace Bakkar_Lake_Web_Application.Models
         // Total price for the booking
 
         public int TotalDays { get; set; } // New Property
-        public decimal Total { get; set; }
+        public decimal TotalPrice { get; set; }
 
         // Booking status (active or inactive)
         public bool Status { get; set; }
+
+        // Navigation property for BookingRooms
+        public ICollection<BookingRoom> BookingRooms { get; set; }
     }
 }
 

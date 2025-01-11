@@ -1,5 +1,5 @@
 ﻿
-        using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Bakkar_Lake_Web_Application.Models
@@ -35,8 +35,5 @@ namespace Bakkar_Lake_Web_Application.Models
         [Column("Address", TypeName = "varchar(100)")]
         [MaxLength(100)]
         public string Address { get; set; }
-
-        [Required]
-        public bool Status { get; set; }
     }
 }
