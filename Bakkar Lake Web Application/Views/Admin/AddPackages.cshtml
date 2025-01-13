@@ -1,0 +1,44 @@
+﻿@model AdminVM
+
+@{
+    ViewData["Title"] = "Add New Package";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg">
+                <div class="card-header bg-primary text-white text-center">
+                    <h3>Add New Package</h3>
+                </div>
+                <div class="card-body">
+                    <form asp-action="AddPackages" method="post" class="needs-validation" novalidate>
+                        <div class="mb-3">
+                            <label for="PackageDetail" class="form-label">Package Detail</label>
+                            <textarea asp-for="PakkageDetail" class="form-control" id="PackageDetail" rows="3" placeholder="Enter package details" required></textarea>
+                            <span asp-validation-for="PakkageDetail" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="PricePerDay" class="form-label">Price Per Day (PKR)</label>
+                            <input asp-for="PricePerDay" type="number" class="form-control" id="PricePerDay" placeholder="Enter price per day" required>
+                            <span asp-validation-for="PricePerDay" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="PackageTotalPrice" class="form-label">Total Price (PKR)</label>
+                            <input asp-for="PackageTotalPrice" type="number" class="form-control" id="PackageTotalPrice" placeholder="Enter total package price" required>
+                            <span asp-validation-for="PackageTotalPrice" class="text-danger"></span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a asp-action="PackageList" class="btn btn-secondary">Back to Package List</a>
+                            <button type="submit" class="btn btn-primary">Create New Package</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

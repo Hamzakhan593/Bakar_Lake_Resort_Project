@@ -10,7 +10,6 @@ namespace Bakkar_Lake_Web_Application.Models
         [ForeignKey("Booking")]
         public int B_Id { get; set; }
 
-        // Navigation properties
         public Room Room { get; set; }
         public Booking Booking { get; set; }
     }

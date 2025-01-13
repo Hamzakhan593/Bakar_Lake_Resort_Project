@@ -8,7 +8,6 @@ public class ContactController : Controller
 {
     private readonly IConfiguration _configuration;
 
-    // Inject IConfiguration to access appsettings.json
     public ContactController(IConfiguration configuration)
     {
         _configuration = configuration;
@@ -27,35 +26,31 @@ public class ContactController : Controller
 
         if (!ModelState.IsValid)
         {
-            return View(form); // Return the form with validation messages
+            return View(form); 
         }
         try
         {
-            // Get email credentials from appsettings.json
             var smtpEmail = _configuration["SMTP:Email"];
             var smtpPassword = _configuration["SMTP:Password"];
             var recipientEmail = _configuration["SMTP:Recipient"];
 
 
-            // Configure the SMTP client
             var smtpClient = new SmtpClient("smtp.gmail.com")
             {
-                Port = 587, // Port for TLS
+                Port = 587, 
                 Credentials = new NetworkCredential(smtpEmail, smtpPassword),
                 EnableSsl = true,
             };
 
-            // Compose the email
             var mailMessage = new MailMessage
             {
-                From = new MailAddress(smtpEmail), // Use configured email as the sender
+                From = new MailAddress(smtpEmail), 
                 Subject = "Bakar Lake Resort",
                 Body = $"Name: {form.Name}\nEmail: {form.Email}\nMessage: {form.Message}",
                 IsBodyHtml = false,
             };
-            mailMessage.To.Add(recipientEmail); // Send email to the configured recipient
+            mailMessage.To.Add(recipientEmail); 
 
-            // Send the email
             smtpClient.Send(mailMessage);
 
             ViewBag.Message = "Your message has been sent successfully!";
@@ -63,7 +58,7 @@ public class ContactController : Controller
         catch (Exception ex)
         {
             ViewBag.Message = "Error sending your message. Please try again later.";
-            Console.WriteLine($"Error: {ex.Message}"); // Log the error (you can also use a logging framework)
+            Console.WriteLine($"Error: {ex.Message}"); 
         }
 
         return View("SendMessage");

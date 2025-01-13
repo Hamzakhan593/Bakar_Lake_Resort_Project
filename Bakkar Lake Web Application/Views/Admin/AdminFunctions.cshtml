@@ -1,0 +1,79 @@
+﻿@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<div class="container py-5">
+    <h2 class="text-center text-primary mb-5">Admin Dashboard</h2>
+
+    <div class="row g-4">
+        <!-- View All Bookings -->
+        <div class="col-lg-4 col-md-6">
+            <div class="card border-primary shadow-lg">
+                <div class="card-body text-center">
+                    <div class="icon-container mb-3 text-primary">
+                        <i class="bi bi-book-fill" style="font-size: 2.5rem;"></i>
+                    </div>
+                    <h5 class="card-title">View All Bookings</h5>
+                    <p class="card-text text-muted">Manage and view all bookings in the system.</p>
+                    <a asp-action="AllBookings" class="btn btn-primary w-100">Go</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Manage Customers -->
+        <div class="col-lg-4 col-md-6">
+            <div class="card border-success shadow-lg">
+                <div class="card-body text-center">
+                    <div class="icon-container mb-3 text-success">
+                        <i class="bi bi-people-fill" style="font-size: 2.5rem;"></i>
+                    </div>
+                    <h5 class="card-title">Manage Customers</h5>
+                    <p class="card-text text-muted">View and update customer details.</p>
+                    <a asp-action="AllCustomers" class="btn btn-success w-100">Go</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add New Package -->
+        <div class="col-lg-4 col-md-6">
+            <div class="card border-warning shadow-lg">
+                <div class="card-body text-center">
+                    <div class="icon-container mb-3 text-warning">
+                        <i class="bi bi-box-seam-fill" style="font-size: 2.5rem;"></i>
+                    </div>
+                    <h5 class="card-title">View Packages</h5>
+                    <p class="card-text text-muted">Create a new package for customers.</p>
+                    <a asp-action="PackageList" class="btn btn-warning w-100">Go</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add New Room -->
+        <div class="col-lg-4 col-md-6">
+            <div class="card border-warning shadow-lg">
+                <div class="card-body text-center">
+                    <div class="icon-container mb-3 text-warning">
+                        <i class="bi bi-box-seam-fill" style="font-size: 2.5rem;"></i>
+                    </div>
+                    <h5 class="card-title">View Rooms</h5>
+                    <p class="card-text text-muted">Create a new Room for customers.</p>
+                    <a asp-action="RoomList" class="btn btn-warning w-100">Go</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Logout -->
+        <div class="col-lg-4 col-md-6">
+            <div class="card border-danger shadow-lg">
+                <div class="card-body text-center">
+                    <div class="icon-container mb-3 text-danger">
+                        <i class="bi bi-box-arrow-right" style="font-size: 2.5rem;"></i>
+                    </div>
+                    <h5 class="card-title">Logout</h5>
+                    <p class="card-text text-muted">Sign out of the admin panel.</p>
+                    <a asp-action="Logout" asp-controller="Account" class="btn btn-danger w-100">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

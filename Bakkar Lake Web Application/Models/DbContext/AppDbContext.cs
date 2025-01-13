@@ -22,7 +22,7 @@ namespace Bakkar_Lake_Web_Application.Data
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<BookingRoom>()
-                .HasKey(br => new { br.B_Id, br.RoomId }); // Composite primary key
+                .HasKey(br => new { br.B_Id, br.RoomId }); 
 
             modelBuilder.Entity<BookingRoom>()
                 .HasOne(br => br.Booking)

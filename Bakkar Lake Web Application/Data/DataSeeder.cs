@@ -9,13 +9,11 @@ namespace Bakkar_Lake_Web_Application.Data
             var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
             var userManager = serviceProvider.GetRequiredService<UserManager<IdentityUser>>();
 
-            // Create Admin Role if it doesn't exist
             if (!await roleManager.RoleExistsAsync("Admin"))
             {
                 await roleManager.CreateAsync(new IdentityRole("Admin"));
             }
 
-            // Create Admin User
             string adminEmail = "netcoremvcasp@gmail.com";
             string adminPassword = "Hamza123@!";
 

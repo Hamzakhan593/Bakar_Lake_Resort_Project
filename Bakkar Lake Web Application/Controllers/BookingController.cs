@@ -21,18 +21,18 @@ namespace Bakkar_Lake_Web_Application.Controllers
 
         private bool AreRoomsAvailable(int requestedRooms, DateTime checkIn, DateTime checkOut)
         {
-            // Get all bookings that overlap with the requested date range
+           
             var overlappingBookings = _context.Bookings
-                .Include(b => b.BookingRooms) // Include booked rooms
+                .Include(b => b.BookingRooms) 
                 .Where(b =>
                     b.CheckOutDate > checkIn &&
-                    b.CheckInDate < checkOut) // Overlap condition
+                    b.CheckInDate < checkOut) 
                 .SelectMany(b => b.BookingRooms.Select(br => br.RoomId))
                 .Distinct()
                 .Count();
 
-            // Calculate available rooms
-            int totalRooms = 4; // Total rooms in the resort
+          
+            int totalRooms = 4; 
             int availableRooms = totalRooms - overlappingBookings;
 
             return availableRooms >= requestedRooms;
@@ -69,9 +69,13 @@ namespace Bakkar_Lake_Web_Application.Controllers
                 {
                     requestedRooms = model.PackageId + 1;
                 }
+                else if (model.PackageId == 4)
+                {
+                    requestedRooms = model.PackageId - 3;
+                }
                 else
                 {
-                    requestedRooms = model.PackageId; // Map package IDs to the number of rooms
+                    requestedRooms = model.PackageId; 
                 }
                 if (!AreRoomsAvailable(requestedRooms, model.CheckInDate, model.CheckOutDate))
                 {
@@ -104,7 +108,6 @@ namespace Bakkar_Lake_Web_Application.Controllers
                 _context.Bookings.Add(booking);
                 _context.SaveChanges();
 
-                //// Assign rooms to the booking
                 AssignRoomsToBooking(booking.B_Id, requestedRooms);
 
                 return RedirectToAction("Confirmation", new { id = booking.B_Id });

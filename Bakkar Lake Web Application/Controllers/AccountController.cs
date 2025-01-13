@@ -21,11 +21,45 @@ public class AccountController : Controller
         var result = await _signInManager.PasswordSignInAsync(username, password, false, false);
         if (result.Succeeded)
         {
-            return RedirectToAction("Index", "Admin");
+            return RedirectToAction("AdminFunctions", "Admin");
         }
         ModelState.AddModelError("", "Invalid login attempt");
         return View();
     }
+
+    [HttpGet]
+    public IActionResult RegisterAdmin()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> RegisterAdmin(string username, string email, string password)
+    {
+        if (ModelState.IsValid)
+        {
+            var user = new IdentityUser
+            {
+                UserName = username,
+                Email = email,
+                EmailConfirmed = true
+            };
+
+            var result = await _signInManager.UserManager.CreateAsync(user, password);
+            if (result.Succeeded)
+            {
+                await _signInManager.UserManager.AddToRoleAsync(user, "Admin");
+                return RedirectToAction("Login");
+            }
+
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(string.Empty, error.Description);
+            }
+        }
+        return View();
+    }
+
 
     public async Task<IActionResult> Logout()
     {

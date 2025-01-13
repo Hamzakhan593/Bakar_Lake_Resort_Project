@@ -4,17 +4,17 @@ using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container
+
 builder.Services.AddControllersWithViews();
 
-// Add database context
+
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Add Identity
+
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
 {
-    // Configure Identity options here
+    
     options.Password.RequireDigit = true;
     options.Password.RequireLowercase = true;
     options.Password.RequireUppercase = true;
@@ -24,24 +24,24 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
     .AddEntityFrameworkStores<AppDbContext>()
     .AddDefaultTokenProviders();
 
-// Add session if needed
+
 builder.Services.AddSession(options =>
 {
-    options.IdleTimeout = TimeSpan.FromMinutes(30); // Set session timeout
+    options.IdleTimeout = TimeSpan.FromMinutes(30); 
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
 
 var app = builder.Build();
 
-// Seed admin user and role
+
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     await DataSeeder.SeedAdmin(services);
 }
 
-// Configure the HTTP request pipeline
+
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
@@ -51,10 +51,10 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
-app.UseSession(); // Make sure this is before routing
+app.UseSession(); 
 app.UseRouting();
 
-app.UseAuthentication(); // Ensure authentication middleware is added
+app.UseAuthentication(); 
 app.UseAuthorization();
 
 app.MapControllerRoute(

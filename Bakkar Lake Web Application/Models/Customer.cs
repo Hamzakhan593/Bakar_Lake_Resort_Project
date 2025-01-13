@@ -7,7 +7,7 @@ namespace Bakkar_Lake_Web_Application.Models
         public class Customer
         {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)] // Auto-increment primary key
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)] 
         public int C_Id { get; set; }
 
         [Required]
