@@ -50,10 +50,10 @@ namespace Bakkar_Lake_Web_Application.Controllers
                 return NotFound();
             }
 
-            // Remove associated BookingRooms
+           
             _context.BookingRooms.RemoveRange(booking.BookingRooms);
 
-            // Remove booking
+          
             _context.Bookings.Remove(booking);
             _context.SaveChanges();
 

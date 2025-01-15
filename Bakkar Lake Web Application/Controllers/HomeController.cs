@@ -19,5 +19,20 @@ namespace Bakkar_Lake_Web_Application.Controllers
         {
             return View();
         }
+
+        public IActionResult PackagesDetail()
+        {
+            return View();
+        }
+
+        public IActionResult TermsAndConditions()
+        {
+            return View();
+        }
+
+        public IActionResult PrivacyPolicy()
+        {
+            return View();
+        }
     }
 }
