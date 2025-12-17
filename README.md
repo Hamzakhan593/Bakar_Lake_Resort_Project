@@ -6,8 +6,6 @@
 
 This gap motivated me to design and develop a complete resort booking web application where users can explore the resort and make reservations online.
 
----
-
 ## Motivation & Story Behind the Project
 
 I started this project during my **4th semester** while learning web development concepts at university. Instead of building a generic academic project, I wanted to solve a **real problem**.
@@ -20,7 +18,6 @@ After visiting Bakar Lake Resort and noticing the absence of a booking website, 
 
 This project represents my transition from learning theory to applying backend development concepts in a real scenario.
 
----
 
 ## Key Features
 
@@ -32,7 +29,6 @@ This project represents my transition from learning theory to applying backend d
 * Clean MVC architecture
 * Secure login system
 
----
 
 ## Technologies Used
 
@@ -44,7 +40,6 @@ This project represents my transition from learning theory to applying backend d
 * **LINQ**
 * **HTML, CSS, Bootstrap**
 
----
 
 ## Project Structure
 
@@ -54,7 +49,6 @@ This project represents my transition from learning theory to applying backend d
 * **Data** – DbContext, Identity setup, and database seeding
 * **wwwroot** – Static files (CSS, images)
 
----
 
 ## Admin Functionality
 
@@ -66,7 +60,6 @@ This project represents my transition from learning theory to applying backend d
   * Bookings
 * Role-based access control
 
----
 
 ## Learning Outcomes
 
@@ -78,7 +71,6 @@ Through this project, I gained hands-on experience in:
 * Working with real business logic
 * Writing clean, maintainable backend code
 
----
 
 ## Screenshots
 
@@ -86,7 +78,6 @@ Through this project, I gained hands-on experience in:
 ![Booking Page](Screenshots/booking.png)
 ![Admin Dashboard](Screenshots/admin.png)
 
----
 
 ## Future Improvements
 
@@ -95,7 +86,6 @@ Through this project, I gained hands-on experience in:
 * Responsive UI improvements
 * Deployment to cloud hosting
 
----
 
 ## Author
 
@@ -104,7 +94,6 @@ ASP.NET Core / .NET Developer
 
 This project reflects my passion for backend development and my ability to learn new technologies by building practical solutions.
 
----
 
 ## Disclaimer
 
