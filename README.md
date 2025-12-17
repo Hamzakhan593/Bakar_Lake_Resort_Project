@@ -74,7 +74,39 @@ Through this project, I gained hands-on experience in:
 
 ## Screenshots
 
+# Home Page
 ![Homepage](./Bakkar%20Lake%20Web%20Application/wwwroot/screenshots/frontpage1.png)
+![Homepage](./Bakkar%20Lake%20Web%20Application/wwwroot/screenshots/frontpage2.png)
+![Homepage](./Bakkar%20Lake%20Web%20Application/wwwroot/screenshots/frontpage3.png)
+![Homepage](./Bakkar%20Lake%20Web%20Application/wwwroot/screenshots/frontpage4.png)
+![Homepage](./Bakkar%20Lake%20Web%20Application/wwwroot/screenshots/frontvideo.png)
+
+# About Page
+![Homepage](./Bakkar%20Lake%20Web%20Application/wwwroot/screenshots/about.png)
+
+# Contact  US
+![Homepage](./Bakkar%20Lake%20Web%20Application/wwwroot/screenshots/contactus.png)
+
+# Booking A Room
+![Homepage](./Bakkar%20Lake%20Web%20Application/wwwroot/screenshots/booking.png)
+
+# Admin Dashboard
+![Homepage](./Bakkar%20Lake%20Web%20Application/wwwroot/screenshots/admindashboard.png)
+
+# New Admin Register
+![Homepage](./Bakkar%20Lake%20Web%20Application/wwwroot/screenshots/adminregister.png)
+
+# All Bookings Managed by Admin
+![Homepage](./Bakkar%20Lake%20Web%20Application/wwwroot/screenshots/allbookings.png)
+
+# All Customers Managed By Admin
+![Homepage](./Bakkar%20Lake%20Web%20Application/wwwroot/screenshots/allcustomers.png)
+
+# Packages
+![Homepage](./Bakkar%20Lake%20Web%20Application/wwwroot/screenshots/packages.png)
+
+# Room List
+![Homepage](./Bakkar%20Lake%20Web%20Application/wwwroot/screenshots/roomlist.png)
 ## Future Improvements
 
 * Online payment gateway integration
