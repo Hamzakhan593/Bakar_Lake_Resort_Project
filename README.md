@@ -74,10 +74,7 @@ Through this project, I gained hands-on experience in:
 
 ## Screenshots
 
-![Homepage](./Bakar_Lake_Resort_Project/wwwroot/screenshots/frontpage1.png)
-![Homepage](./wwwroot/screenshots/frontpage1.png)
-![Homepage](wwwroot/screenshots/frontpage1.png)
-
+![Homepage](./Bakkar%20Lake%20Web%20Application/wwwroot/screenshots/frontpage1.png)
 ## Future Improvements
 
 * Online payment gateway integration
