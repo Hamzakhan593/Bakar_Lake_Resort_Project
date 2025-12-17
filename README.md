@@ -74,8 +74,9 @@ Through this project, I gained hands-on experience in:
 
 ## Screenshots
 
-![Homepage](./Bakar_Lake_Resort_Project/wwwroot/screenshots/frontpage1.png) 
-
+![Homepage](./Bakar_Lake_Resort_Project/wwwroot/screenshots/frontpage1.png)
+![Homepage](./wwwroot/screenshots/frontpage1.png)
+![Homepage](wwwroot/screenshots/frontpage1.png)
 
 ## Future Improvements
 
