@@ -22,7 +22,7 @@ namespace Bakkar_Lake_Web_Application.Data
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<BookingRoom>()
-                .HasKey(br => new { br.B_Id, br.RoomId }); 
+                .HasKey(br => new { br.B_Id, br.RoomId });
 
             modelBuilder.Entity<BookingRoom>()
                 .HasOne(br => br.Booking)
@@ -33,6 +33,18 @@ namespace Bakkar_Lake_Web_Application.Data
                 .HasOne(br => br.Room)
                 .WithMany(r => r.BookingRooms)
                 .HasForeignKey(br => br.RoomId);
+
+            modelBuilder.Entity<Booking>()
+                .Property(b => b.TotalPrice)
+                .HasPrecision(18, 2);
+
+            modelBuilder.Entity<Package>()
+                .Property(p => p.PackageTotalPrice)
+                .HasPrecision(18, 2);
+
+            modelBuilder.Entity<Package>()
+                .Property(p => p.PricePerDay)
+                .HasPrecision(18, 2);
         }
 
 
